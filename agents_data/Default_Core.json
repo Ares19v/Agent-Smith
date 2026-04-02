@@ -1,0 +1,1 @@
+{"intents": [{"tag": "greet", "patterns": ["hi", "hello", "status"], "responses": ["Default Core operating at nominal parameters."]}]}

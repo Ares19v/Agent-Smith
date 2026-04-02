@@ -1,0 +1,14 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "System check"],
+      "responses": ["Online and ready.", "Hello, Administrator."]
+    },
+    {
+      "tag": "identity",
+      "patterns": ["Who are you", "What is your designation"],
+      "responses": ["I am the primary intent agent.", "I am a dynamically trained local network."]
+    }
+  ]
+}

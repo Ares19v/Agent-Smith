@@ -1,0 +1,13 @@
+{
+    "intents": [
+        {
+            "tag": "intent_0",
+            "patterns": [
+                "fix code"
+            ],
+            "responses": [
+                "Int Debugger"
+            ]
+        }
+    ]
+}
