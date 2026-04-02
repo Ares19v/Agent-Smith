@@ -5,6 +5,8 @@
 venv/
 env/
 .env
-.pytest_cache/
 .vscode/
 .idea/
+agents_data/*.json
+!agents_data/Coder.json
+!agents_data/Default_Core.json
