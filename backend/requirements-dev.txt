@@ -1,0 +1,20 @@
+# ==============================================================================
+#  Agent Smith — Development & Testing Dependencies
+#  Install alongside main deps:
+#    pip install -r requirements.txt -r requirements-dev.txt
+# ==============================================================================
+
+# ── Testing ────────────────────────────────────────────────────────────────────
+pytest>=8.0.0                   # Test runner
+httpx>=0.27.0                   # Async HTTP client for FastAPI test client
+pytest-asyncio>=0.23.0          # Async test support
+
+# ── Linting & Formatting ───────────────────────────────────────────────────────
+ruff>=0.4.0                     # Fast Python linter (replaces flake8, isort)
+black>=24.0.0                   # Opinionated code formatter
+
+# ── Type Checking ──────────────────────────────────────────────────────────────
+mypy>=1.10.0                    # Static type checker
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+pre-commit>=3.7.0               # Git hook manager (runs ruff + black on commit)

@@ -1,0 +1,51 @@
+# ==============================================================================
+#  Agent Smith — Python Dependencies
+#  Python 3.10+ required
+# ==============================================================================
+#
+#  Quick Install:
+#    pip install -r requirements.txt
+#
+#  Dev tools:
+#    pip install -r requirements-dev.txt
+#
+#  Uninstall (reclaim ~215 MB):
+#    Windows: double-click uninstall.bat
+#    Any OS:  see UNINSTALL.md
+# ==============================================================================
+
+# ── Web Framework ──────────────────────────────────────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0       # ASGI server (includes websockets, watchfiles)
+python-multipart>=0.0.9         # Required for UploadFile / Form support
+
+# ── Data Validation ────────────────────────────────────────────────────────────
+pydantic>=2.7.0
+
+# ── Environment Variables ──────────────────────────────────────────────────────
+python-dotenv>=1.0.0            # Loads .env into os.environ at startup
+
+# ── Machine Learning / NLP ─────────────────────────────────────────────────────
+scikit-learn>=1.4.0             # TF-IDF vectorizer + MLP classifier
+numpy>=1.26.0                   # Array ops (transitive scikit-learn dependency)
+
+# ── Document Parsing ───────────────────────────────────────────────────────────
+pdfplumber>=0.11.0              # PDF text extraction (no poppler dependency)
+python-docx>=1.1.0              # DOCX text extraction
+
+# ── Legacy / Prototype UI ─────────────────────────────────────────────────────
+gradio>=4.0.0                   # Used by run_system.py (Gradio prototype shell)
+
+# ── Optional: LLM Fallback (uncomment to enable) ──────────────────────────────
+# Groq (cloud, fast — Llama 3, Mixtral):
+# groq>=0.9.0
+#
+# OpenAI API:
+# openai>=1.30.0
+
+# ── Optional: Local Voice — Whisper STT (uncomment to enable) ─────────────────
+# openai-whisper>=20231117      # Local Whisper speech-to-text model
+# soundfile>=0.12.1             # Audio I/O for Whisper pipeline
+
+# ── Optional: Local LLM via Ollama (no install needed — uses HTTP) ────────────
+# requests>=2.31.0              # Already a transitive dep; listed for clarity

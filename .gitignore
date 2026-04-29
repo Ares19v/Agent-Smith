@@ -1,12 +1,104 @@
-﻿__pycache__/
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
 *.py[cod]
 *$py.class
-.venv/
+*.so
+*.pyd
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
 venv/
+.venv/
 env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Environment Variables ─────────────────────────────────────────────────────
 .env
+!.env.example
+
+# ── Distribution / Packaging ──────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+.eggs/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+nosetests.xml
+
+# ── Type Checking ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
 .vscode/
 .idea/
-agents_data/*.json
-!agents_data/Coder.json
-!agents_data/Default_Core.json
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints
+*.ipynb
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+log/
+
+# ── Temporary / Scratch ───────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+installed_packages.txt
+
+# ── ML Model Artifacts ────────────────────────────────────────────────────────
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+models/
+
+# ── Agent Data (persisted locally, not version controlled) ───────────────────
+# Comment this out if you want to track agent definitions in git.
+# agents_data/*.json
+# Keep example agents:
+!agents_data/.gitkeep
+
+# ── Uploaded Documents (runtime only) ────────────────────────────────────────
+uploads/
+temp_uploads/
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+.dockerignore
+
+# ── OS Specific ───────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+ehthumbs.db
