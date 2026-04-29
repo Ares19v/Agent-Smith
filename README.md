@@ -98,7 +98,7 @@ For production or OS-agnostic deployment, use the containerized microservices.
 
 ```bash
 # Build the Nginx frontend and FastAPI backend containers
-docker-compose up --build -d
+docker compose up --build -d
 ```
 The application will instantly be available at **`http://localhost`**.
 
