@@ -175,3 +175,8 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
   <b>Built for Performance, Privacy, and Scalability.</b><br>
   <i>Designed and Engineered by Devansh Tyagi</i>
 </p>
+
+---
+<p align="center">
+  Made by Devansh Tyagi @ 2026
+</p>
