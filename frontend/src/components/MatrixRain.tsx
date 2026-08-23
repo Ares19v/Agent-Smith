@@ -37,25 +37,15 @@ export const MatrixRain: React.FC<MatrixRainProps> = ({ isEnabled = true }) => {
     const drops: number[] = new Array(columns).fill(1);
 
     const render = () => {
-      // Semi-transparent black to create fade trail effect
-      ctx.fillStyle = 'rgba(0, 5, 2, 0.07)';
+      // Smooth semi-transparent fade trail
+      ctx.fillStyle = 'rgba(0, 5, 2, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = `${fontSize}px 'VT323', 'Fira Code', monospace`;
+      ctx.fillStyle = '#00ff41'; // Consistent smooth phosphor green (no white lightning flicker)
 
       for (let i = 0; i < drops.length; i++) {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        
-        // Random bright white lead drop head, green trail
-        if (Math.random() > 0.90) {
-          ctx.fillStyle = '#ffffff';
-          ctx.shadowColor = '#00ff41';
-          ctx.shadowBlur = 8;
-        } else {
-          ctx.fillStyle = '#00ff41';
-          ctx.shadowColor = '#003b00';
-          ctx.shadowBlur = 4;
-        }
 
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
