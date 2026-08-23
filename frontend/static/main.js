@@ -1,4 +1,4 @@
-﻿const uiAgentList = document.getElementById('uiAgentList');
+const uiAgentList = document.getElementById('uiAgentList');
 const chatHistory = document.getElementById('chatHistory');
 const promptInput = document.getElementById('promptInput');
 const mainWorkspace = document.querySelector('.main');

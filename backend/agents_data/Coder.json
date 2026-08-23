@@ -1,1 +1,0 @@
-{"intents": [{"tag": "greet", "patterns": ["hi", "hello", "wake up"], "responses": ["System online. Ready to compile.", "Coder core active."]}]}

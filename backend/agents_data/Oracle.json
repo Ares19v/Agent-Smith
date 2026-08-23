@@ -1,0 +1,46 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello oracle",
+                "hi oracle",
+                "oracle",
+                "tell my future"
+            ],
+            "responses": [
+                "Have a cookie, darling. What architectural choice is troubling your mind?",
+                "I'd ask you to sit down, but you're not going to anyway. What data models are we forecasting today?"
+            ]
+        },
+        {
+            "tag": "system_architecture",
+            "patterns": [
+                "system architecture",
+                "design microservices",
+                "scalable design",
+                "database architecture",
+                "how should i architect this",
+                "design patterns"
+            ],
+            "responses": [
+                "[ORACLE ARCHITECTURE]: Separate your read and write models with event-driven CQRS. Use distributed caching (Redis) in front of PostgreSQL for sub-millisecond query latency.",
+                "[DESIGN RECOMMENDATION]: Decouple the REST ingestion layer from heavy NLP background workers using an asynchronous queue (Celery or Redis Streams)."
+            ]
+        },
+        {
+            "tag": "prediction_forecast",
+            "patterns": [
+                "predict trend",
+                "forecast load",
+                "capacity planning",
+                "future growth",
+                "will it scale"
+            ],
+            "responses": [
+                "[PREDICTIVE MODEL]: Based on logarithmic traffic curves, memory utilization will peak at 82% during peak concurrency. Recommend horizontal autoscaling at 70% threshold.",
+                "[FORECAST]: You didn't come here to make the choice, you've already made it. You're here to understand why. Your architecture will sustain 10,000 req/sec."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello cypher",
+                "hi cypher",
+                "cypher",
+                "infrastructure status"
+            ],
+            "responses": [
+                "Ignorance is bliss... but your servers are humming. What infrastructure tasks are we running?",
+                "I know this steak doesn't exist, but it's delicious. DevOps pipelines are green and ready."
+            ]
+        },
+        {
+            "tag": "deploy_containers",
+            "patterns": [
+                "deploy containers",
+                "docker compose up",
+                "kubernetes deploy",
+                "start services",
+                "spin up cluster",
+                "ship containers"
+            ],
+            "responses": [
+                "[DOCKER ENGINE]: Containers initialized on overlay network. Health checks reporting 0 container restarts.",
+                "[KUBERNETES]: Pod replicas deployed across multi-zone nodes. Ingress load balancer configured with TLS termination."
+            ]
+        },
+        {
+            "tag": "server_logs",
+            "patterns": [
+                "check server logs",
+                "view logs",
+                "tail access logs",
+                "error logs",
+                "inspect traffic"
+            ],
+            "responses": [
+                "[LOG STREAM]: Tail -f /var/log/nginx/access.log | 200 OK across 99.4% of inbound requests. Zero 502 Bad Gateway events.",
+                "[SYS-METRICS]: CPU load average: 0.18, 0.22, 0.15. Disk I/O: 14.2 MB/s. Memory headroom: 6.4 GB."
+            ]
+        },
+        {
+            "tag": "rollback_restart",
+            "patterns": [
+                "emergency rollback",
+                "restart services",
+                "reboot cluster",
+                "flush caches",
+                "kill process"
+            ],
+            "responses": [
+                "[INFRA REBOOT]: Graceful restart signal sent (SIGTERM). Drained connections and re-spawned worker processes.",
+                "[ROLLBACK PROTOCOL]: Reverted container image tag to previous stable hash (v1.9.4). Ingress traffic re-routed."
+            ]
+        }
+    ]
+}

@@ -1,103 +1,16 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Smith</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="sidebar-header">Agent Smith</div>
-            <div class="agent-list" id="uiAgentList"></div>
-            <div class="sidebar-footer">
-                <button class="create-btn" id="openModalBtn">+ Create Agents</button>
-                <a href="#" class="signup" id="signupBtn">Sign Up</a>
-            </div>
-        </div>
-        
-        <div class="main">
-            <div class="top-spacer"></div>
-            
-            <div class="greeting" id="greetingBlock">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M14.5 2H9.5L10.5 4H13.5L14.5 2Z" fill="#00a8ff"/><path d="M10.5 4L8 10L12 22L16 10L13.5 4H10.5Z" fill="#00a8ff"/></svg>
-                <h1>Afternoon, Dev</h1>
-            </div>
-            
-            <div class="chat-history" id="chatHistory"></div>
-            
-            <div class="chatbox-container">
-                <textarea id="promptInput" placeholder="How can I help you today?"></textarea>
-                <div class="toolbar">
-                    <div class="toolbar-left">
-                        <input type="file" id="fileUpload" style="display: none;">
-                        <button class="icon-btn" id="uploadBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                    </div>
-                    <div class="toolbar-right">
-                        <div class="custom-dropdown" id="agentDropdownContainer">
-                            <div class="dropdown-selected" id="dropdownSelected">Coder <span class="chevron">▼</span></div>
-                            <div class="dropdown-options" id="agentDropdownOptions">
-                                </div>
-                        </div>
-                        <button class="icon-btn" id="micBtn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bottom-spacer"></div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="createModal">
-        <div class="modal-content" style="width: 500px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px;">
-                <h2 id="modalTitle">Deploy New Core</h2>
-                <a href="#" id="toggleMode" style="color: #00a8ff; font-size: 12px; text-decoration: none;">Switch to JSON Mode</a>
-            </div>
-            <div id="standardInputs">
-                <label>Designation (Name)</label>
-                <input type="text" id="agentName" placeholder="e.g. CodeBot" style="width: 100%; margin-bottom: 15px;">
-                <label>Trigger Patterns (Comma separated)</label>
-                <textarea id="agentPatterns" placeholder="e.g. fix my code, review this" rows="2" style="width: 100%; margin-bottom: 15px;"></textarea>
-                <label>Core Responses (Comma separated)</label>
-                <textarea id="agentResponses" placeholder="e.g. Initializing debugger..." rows="2" style="width: 100%; margin-bottom: 15px;"></textarea>
-            </div>
-            <div id="jsonEditorArea" style="display: none;">
-                <label>Core Designation (Name)</label>
-                <input type="text" id="agentNameJson" placeholder="e.g. CodeBot" style="width: 100%; margin-bottom: 15px;">
-                <label>Raw Intent JSON</label>
-                <textarea id="rawJsonInput" placeholder='{ "intents": [...] }' rows="10" style="width: 100%; font-family: monospace; font-size: 12px; color: #00ff00; background: #000;"></textarea>
-            </div>
-            <div class="modal-actions">
-                <button class="btn-secondary" id="closeModalBtn">Cancel</button>
-                <button class="btn-primary" id="saveAgentBtn">Deploy Core</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="authModal">
-        <div class="modal-content">
-            <h2 id="authTitle">Sign Up</h2>
-            <label>Email Address</label>
-            <input type="email" id="authEmail" placeholder="developer@matrix.com">
-            <label>Password</label>
-            <input type="password" id="authPassword" placeholder="••••••••">
-            <div class="modal-actions" style="justify-content: space-between; align-items: center; margin-top: 15px;">
-                <a href="#" id="authToggle" style="color: #8e8e93; font-size: 13px; text-decoration: none;">Log in instead</a>
-                <div>
-                    <button class="btn-secondary" id="closeAuthBtn">Cancel</button>
-                    <button class="btn-primary" id="submitAuthBtn">Sign Up</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="/static/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ff41'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGENT SMITH — Neural Matrix Orchestrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=VT323&family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

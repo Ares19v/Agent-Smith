@@ -99,7 +99,7 @@ async def get_agents():
 @router.get("/api/agents/{name}", summary="Inspect a specific agent")
 async def inspect_agent(name: str):
     """
-    Return status and session memory for the given agent.
+    Return status, patterns, responses, and session memory for the given agent.
     Useful for debugging intent coverage.
     """
     agent = engine.get_agent(name)
@@ -110,8 +110,12 @@ async def inspect_agent(name: str):
         "is_trained": agent.is_trained,
         "intent_count": len(agent.responses),
         "intents": list(agent.responses.keys()),
+        "patterns_map": getattr(agent, "patterns_map", {}),
+        "responses_map": getattr(agent, "responses", {}),
+        "total_patterns": len(getattr(agent, "corpus", [])),
         "memory": agent.get_memory_snapshot(),
     }
+
 
 
 @router.post("/api/agents", summary="Create an agent (form input)")

@@ -104,12 +104,33 @@ async def global_exception_handler(request: Request, exc: Exception):
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), "frontend")
+DIST_DIR = os.path.join(FRONTEND_DIR, "dist")
+STATIC_DIR = os.path.join(FRONTEND_DIR, "static")
 
-app.mount("/static", StaticFiles(directory=os.path.join(FRONTEND_DIR, "static")), name="static")
+# Mount Vite build assets if dist exists
+if os.path.isdir(os.path.join(DIST_DIR, "assets")):
+    app.mount("/assets", StaticFiles(directory=os.path.join(DIST_DIR, "assets")), name="assets")
+
+# Mount static files if present
+if os.path.isdir(STATIC_DIR):
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
 app.include_router(api_router)
 
 
-@app.get("/", include_in_schema=False)
-async def serve_frontend():
-    """Serve the SPA shell (index.html)."""
+@app.get("/{full_path:path}", include_in_schema=False)
+async def serve_frontend(full_path: str):
+    """Serve SPA index.html or specific dist files."""
+    if full_path and not full_path.startswith("api"):
+        requested_file = os.path.join(DIST_DIR, full_path)
+        if os.path.isfile(requested_file):
+            return FileResponse(requested_file)
+
+    # Prefer built Vite SPA if available
+    dist_index = os.path.join(DIST_DIR, "index.html")
+    if os.path.isfile(dist_index):
+        return FileResponse(dist_index)
+
+    # Fallback to frontend index.html
     return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+

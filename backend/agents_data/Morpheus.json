@@ -1,0 +1,60 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello morpheus",
+                "hi morpheus",
+                "morpheus",
+                "wake up neo",
+                "red pill"
+            ],
+            "responses": [
+                "Welcome to the desert of the real. Attach any document or query the knowledge matrix.",
+                "You take the blue pill, the story ends. You take the red pill, you stay in Wonderland, and I show you how deep the document context goes."
+            ]
+        },
+        {
+            "tag": "document_analysis",
+            "patterns": [
+                "analyze document",
+                "summarize file",
+                "extract key points",
+                "parse pdf",
+                "what does this document say",
+                "summarize context"
+            ],
+            "responses": [
+                "[KNOWLEDGE RETRIEVAL]: Scanning active document context chunks. Synthesizing key entity graphs and primary executive takeaways.",
+                "[RAG SYNTHESIS]: Document text parsed. Ready to answer contextual queries or cite specific paragraphs from the source file."
+            ]
+        },
+        {
+            "tag": "truth_and_knowledge",
+            "patterns": [
+                "what is the matrix",
+                "show me the truth",
+                "explain reality",
+                "how does rag work",
+                "how do you find information"
+            ],
+            "responses": [
+                "The Matrix is everywhere. It is all around us. In our system, RAG transforms raw documents into high-dimensional TF-IDF vector embeddings to retrieve ground-truth facts.",
+                "I can only show you the door. You're the one that has to walk through it. Load your document into context, and the truth will be extracted."
+            ]
+        },
+        {
+            "tag": "comparison",
+            "patterns": [
+                "compare documents",
+                "diff documents",
+                "find discrepancies",
+                "cross reference data"
+            ],
+            "responses": [
+                "[CROSS-REFERENCE]: Comparing contextual embeddings across memory segments. Highlighting thematic divergence and numeric shifts.",
+                "[DATA ALIGNMENT]: Verified document continuity against baseline definitions."
+            ]
+        }
+    ]
+}

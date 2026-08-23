@@ -1,4 +1,4 @@
-﻿* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; color: #ececf1; font-family: 'Inter', -apple-system, sans-serif; overflow: hidden; }
 .container { display: flex; height: 100vh; }
 

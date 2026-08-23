@@ -30,7 +30,21 @@ python -m pip install --upgrade pip > nul 2>&1
 echo [INFO] Installing backend requirements...
 pip install -r backend\requirements.txt
 
+echo [INFO] Checking Node.js for React frontend...
+node --version >nul 2>&1
+if not errorlevel 1 (
+    echo [INFO] Installing React + Vite frontend dependencies...
+    cd frontend
+    call npm install
+    echo [INFO] Building React production bundle...
+    call npm run build
+    cd ..
+) else (
+    echo [WARNING] Node.js is not installed. To build the React UI, install Node.js 18+.
+)
+
 echo ==============================================================
 echo [INFO] Installation Complete! You can now run Run_Project.bat.
 echo ==============================================================
 pause
+
