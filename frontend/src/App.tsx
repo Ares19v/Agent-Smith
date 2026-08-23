@@ -4,10 +4,10 @@ import {
   Paperclip,
   Mic,
   MicOff,
-  Activity,
   Trash2,
   Download,
   Terminal,
+  CloudRain,
 } from 'lucide-react';
 import { Sidebar } from './components/Sidebar';
 import { ChatFeed } from './components/ChatFeed';
@@ -15,12 +15,11 @@ import { CreateAgentModal } from './components/CreateAgentModal';
 import { AgentInspectorModal } from './components/AgentInspectorModal';
 import { DocumentContextBadge } from './components/DocumentContextBadge';
 import { MatrixRain } from './components/MatrixRain';
-import { TelemetryWaveform } from './components/TelemetryWaveform';
 import { Message, DocumentContextInfo } from './types';
 
 export const App: React.FC = () => {
   const [agents, setAgents] = useState<string[]>([]);
-  const [currentAgent, setCurrentAgent] = useState<string>('Agent Smith');
+  const [currentAgent, setCurrentAgent] = useState<string>('Coder');
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isBotThinking, setIsBotThinking] = useState(false);
@@ -32,6 +31,7 @@ export const App: React.FC = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [inspectAgentName, setInspectAgentName] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
+  const [isRainEnabled, setIsRainEnabled] = useState<boolean>(true);
 
   // Audio / Mic State
   const [isRecording, setIsRecording] = useState(false);
@@ -312,7 +312,7 @@ export const App: React.FC = () => {
   return (
     <div className="app-container">
       {/* Matrix Rain Canvas */}
-      <MatrixRain />
+      <MatrixRain isEnabled={isRainEnabled} />
 
       <Sidebar
         agents={agents}
@@ -337,49 +337,39 @@ export const App: React.FC = () => {
             />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            {/* Live Oscilloscope Waveform Telemetry */}
-            <TelemetryWaveform isThinking={isBotThinking} />
-
-            {messages.length > 0 && (
-              <>
-                <button
-                  className="icon-btn-mini"
-                  title="Export Transcript (.md)"
-                  onClick={handleExportChat}
-                >
-                  <Download size={14} />
-                </button>
-                <button
-                  className="icon-btn-mini danger"
-                  title="Purge Terminal Log"
-                  onClick={handleClearChat}
-                >
-                  <Trash2 size={14} />
-                </button>
-              </>
-            )}
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontSize: '0.72rem',
-                color: '#00ff41',
-                border: '1px solid rgba(0,255,65,0.4)',
-                padding: '2px 8px',
-                background: 'rgba(0,255,65,0.06)',
-                letterSpacing: '1px',
-              }}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              className="icon-btn-mini"
+              title="Export Transcript (.md)"
+              onClick={handleExportChat}
+              disabled={messages.length === 0}
+              style={messages.length === 0 ? { opacity: 0.35, cursor: 'not-allowed' } : {}}
             >
-              <Activity size={13} color="#00ff41" />
-              <span>LINK: SECURE</span>
-            </div>
+              <Download size={14} />
+            </button>
+
+            <button
+              className="icon-btn-mini danger"
+              title="Purge Terminal Log"
+              onClick={handleClearChat}
+              disabled={messages.length === 0}
+              style={messages.length === 0 ? { opacity: 0.35, cursor: 'not-allowed' } : {}}
+            >
+              <Trash2 size={14} />
+            </button>
+
+            <button
+              className="icon-btn-mini"
+              title={isRainEnabled ? "Disable Matrix Digital Rain" : "Enable Matrix Digital Rain"}
+              onClick={() => setIsRainEnabled(!isRainEnabled)}
+              style={!isRainEnabled ? { opacity: 0.35 } : {}}
+            >
+              <CloudRain size={14} />
+            </button>
           </div>
         </header>
 
-        {/* Retro Downloading / Ingesting Progress Bar if uploading */}
+        {/* Retro Ingesting Progress Bar */}
         {uploadProgress !== null && (
           <div
             style={{

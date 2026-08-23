@@ -3,11 +3,11 @@ import {
   Plus,
   Info,
   Trash2,
-  ShieldAlert,
-  Terminal,
-  BookOpen,
-  Brain,
+  Code2,
+  Layout,
+  Database,
   Server,
+  ShieldCheck,
   Activity,
   Cpu,
 } from 'lucide-react';
@@ -23,18 +23,18 @@ interface SidebarProps {
 
 const getCoreMeta = (name: string) => {
   switch (name) {
-    case 'Agent Smith':
-      return { tag: 'PRIME', role: 'Matrix Sentinel & Orchestrator', icon: <ShieldAlert size={14} /> };
-    case 'Trinity':
-      return { tag: 'DEV', role: 'Code Execution & Exploit Debugger', icon: <Terminal size={14} /> };
-    case 'Morpheus':
-      return { tag: 'RAG', role: 'Document Intelligence & Knowledge', icon: <BookOpen size={14} /> };
-    case 'Oracle':
-      return { tag: 'ARCH', role: 'System Architecture & Predictor', icon: <Brain size={14} /> };
-    case 'Cypher':
-      return { tag: 'OPS', role: 'DevOps, Docker & Infrastructure', icon: <Server size={14} /> };
+    case 'Coder':
+      return { tag: 'DEV', role: 'Algorithms & Code Logic', icon: <Code2 size={15} /> };
+    case 'Frontend Dev':
+      return { tag: 'UI', role: 'React 18, CSS & Client Arch', icon: <Layout size={15} /> };
+    case 'Backend Dev':
+      return { tag: 'API', role: 'FastAPI, SQL & Auth Services', icon: <Database size={15} /> };
+    case 'DevOps Engineer':
+      return { tag: 'OPS', role: 'Docker, CI/CD & Deployments', icon: <Server size={15} /> };
+    case 'Security Analyst':
+      return { tag: 'SEC', role: 'Vulnerability Audits & Defense', icon: <ShieldCheck size={15} /> };
     default:
-      return { tag: 'CUSTOM', role: 'Neural Sub-Routine', icon: <Cpu size={14} /> };
+      return { tag: 'CUSTOM', role: 'Custom Neural Routine', icon: <Cpu size={15} /> };
   }
 };
 
@@ -52,19 +52,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="smith-avatar-box">
           <img
             src="/smith_matrix.jpg"
-            alt="Agent Smith Matrix Portrait"
+            alt="Agent Smith Matrix Avatar"
             className="smith-avatar-img"
             onError={(e) => {
               (e.target as HTMLElement).style.display = 'none';
             }}
           />
-          <span className="smith-avatar-tag">PRIME MATRIX SENTINEL // v2.0</span>
+          <span className="smith-avatar-tag">ORCHESTRATION SENTINEL // v2.0</span>
         </div>
 
         <div className="logo-block">
           <div>
             <h1 className="logo-title">AGENT SMITH</h1>
-            <p className="logo-sub">[ NEURAL COMMAND MATRIX ]</p>
+            <p className="logo-sub">[ AI DEVELOPER PLATFORM ]</p>
           </div>
           <Activity size={18} color="#00ff41" />
         </div>
@@ -72,7 +72,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       <div className="agent-list-section">
         <div className="section-label">
-          <span>// SYNCHRONIZED CORES</span>
+          <span>// SPECIALIZED DEV CORES</span>
           <span>[{agents.length}]</span>
         </div>
 
@@ -91,7 +91,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <span style={{ color: isActive ? '#00ff41' : '#00aa2a' }}>{meta.icon}</span>
                 <div>
                   <div style={{ fontWeight: 600, fontSize: '0.85rem' }}>{agent}</div>
-                  <div style={{ fontSize: '0.65rem', color: isActive ? '#a3e635' : '#007711' }}>
+                  <div style={{ fontSize: '0.66rem', color: isActive ? '#a3e635' : '#007711' }}>
                     [{meta.tag}] {meta.role}
                   </div>
                 </div>
@@ -100,12 +100,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div className="agent-actions" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="icon-btn-mini"
-                  title="Inspect Neural Intent Map"
+                  title="Inspect Core Intent Architecture"
                   onClick={() => onOpenInspectModal(agent)}
                 >
                   <Info size={13} />
                 </button>
-                {agent !== 'Agent Smith' && agent !== 'Trinity' && agent !== 'Morpheus' && agent !== 'Oracle' && agent !== 'Cypher' && (
+                {agent !== 'Coder' && agent !== 'Frontend Dev' && agent !== 'Backend Dev' && agent !== 'DevOps Engineer' && agent !== 'Security Analyst' && (
                   <button
                     className="icon-btn-mini danger"
                     title="Purge Core from Registry"
@@ -120,7 +120,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      {/* Live System Telemetry Box */}
+      {/* Telemetry Summary */}
       <div
         style={{
           margin: '0 10px 10px 10px',
@@ -134,7 +134,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', color: '#00ff41', marginBottom: '2px' }}>
-          <span>// MATRIX TELEMETRY</span>
+          <span>// ENGINE TELEMETRY</span>
           <span>4.80 THz</span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -142,14 +142,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span style={{ color: '#00ff41' }}>512 MB / 8 GB</span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <span>ANOMALY DETECTOR:</span>
-          <span style={{ color: '#00ff41' }}>0 THREATS</span>
+          <span>STATUS:</span>
+          <span style={{ color: '#00ff41' }}>5 CORES ACTIVE</span>
         </div>
       </div>
 
       <div className="sidebar-footer">
         <button className="btn-matrix" onClick={onOpenCreateModal}>
-          <Plus size={15} /> [ Deploy Neural Core ]
+          <Plus size={15} /> [ Deploy Custom Core ]
         </button>
       </div>
     </aside>

@@ -1,0 +1,60 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello devops",
+                "hi devops",
+                "devops engineer",
+                "infra online"
+            ],
+            "responses": [
+                "DevOps Engineer linked. Docker, Kubernetes, CI/CD pipelines, Nginx, and cloud infrastructure ready.",
+                "Infrastructure operations active. Ready to containerize services, monitor logs, or configure deploy pipelines."
+            ]
+        },
+        {
+            "tag": "docker_kubernetes",
+            "patterns": [
+                "dockerfile",
+                "docker compose",
+                "containerize app",
+                "kubernetes pod",
+                "k8s deployment",
+                "multi stage build"
+            ],
+            "responses": [
+                "[DOCKER]: Configured multi-stage Dockerfile with non-root user and minimal Alpine base image, reducing image size by 75%.",
+                "[KUBERNETES]: Defined Deployment spec with 3 replicas, liveness/readiness probes, and horizontal pod autoscaler (HPA)."
+            ]
+        },
+        {
+            "tag": "cicd_automation",
+            "patterns": [
+                "github actions",
+                "ci cd pipeline",
+                "build failure",
+                "automated tests",
+                "deploy pipeline"
+            ],
+            "responses": [
+                "[CI/CD]: Pipeline configured with parallel matrix jobs (lint, unit tests, docker build & push) on every push to main.",
+                "[AUTOMATION]: Configured zero-downtime rolling deployments triggered automatically upon green test builds."
+            ]
+        },
+        {
+            "tag": "server_monitoring_logs",
+            "patterns": [
+                "check server logs",
+                "tail access logs",
+                "nginx reverse proxy",
+                "ssl certificate",
+                "cpu memory usage"
+            ],
+            "responses": [
+                "[LOG TAIL]: Nginx reverse proxy routing traffic on port 80/443 to backend ASGI server. Zero 5xx errors recorded in last 24h.",
+                "[SYS-HEALTH]: Cluster CPU usage: 24%, Memory allocated: 3.2 GB / 16 GB, Disk I/O: normal."
+            ]
+        }
+    ]
+}

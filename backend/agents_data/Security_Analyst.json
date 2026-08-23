@@ -1,0 +1,46 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello security analyst",
+                "hi security",
+                "security analyst",
+                "security online"
+            ],
+            "responses": [
+                "Security Analyst active. Vulnerability scanner, penetration testing rules, and OWASP Top 10 defense ready.",
+                "Security monitor engaged. Ready to audit endpoints, inspect authentication tokens, or harden CORS/CSRF headers."
+            ]
+        },
+        {
+            "tag": "vulnerability_audit",
+            "patterns": [
+                "security audit",
+                "check vulnerabilities",
+                "sql injection",
+                "xss protection",
+                "sanitize input",
+                "owasp top 10"
+            ],
+            "responses": [
+                "[SECURITY AUDIT]: Parameterized SQL queries verified to eliminate SQLi. Input HTML escaped and DOMpurified to block XSS.",
+                "[PEN-TEST RUN]: Dependencies scanned for CVEs. Zero high/critical severity advisories reported."
+            ]
+        },
+        {
+            "tag": "network_hardening",
+            "patterns": [
+                "cors policy",
+                "rate limiting",
+                "secure headers",
+                "ddos protection",
+                "content security policy"
+            ],
+            "responses": [
+                "[HARDENING]: Enforced Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), and X-Frame-Options: DENY.",
+                "[RATE LIMITING]: Configured token bucket rate limiter (100 req/min per IP) to mitigate brute force and DoS attacks."
+            ]
+        }
+    ]
+}

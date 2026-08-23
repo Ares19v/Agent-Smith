@@ -1,0 +1,61 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello backend dev",
+                "hi backend",
+                "backend dev",
+                "backend online"
+            ],
+            "responses": [
+                "Backend Dev online. FastAPI, Uvicorn, REST routes, SQL databases, and server architecture ready.",
+                "Server runtime active. Ready to build robust API endpoints, optimize queries, or implement authentication."
+            ]
+        },
+        {
+            "tag": "fastapi_rest_endpoints",
+            "patterns": [
+                "fastapi router",
+                "rest api endpoint",
+                "crud operations",
+                "request validation",
+                "pydantic model",
+                "async endpoint"
+            ],
+            "responses": [
+                "[FASTAPI]: Defined APIRouter with strict Pydantic v2 validation models and dependency injection (Depends).",
+                "[REST ARCHITECTURE]: Configured RESTful endpoints (GET/POST/PUT/DELETE) with clean HTTP status codes and error responses."
+            ]
+        },
+        {
+            "tag": "databases_caching",
+            "patterns": [
+                "database query",
+                "postgresql schema",
+                "sql indexing",
+                "redis caching",
+                "orm optimization",
+                "slow query"
+            ],
+            "responses": [
+                "[DATABASE]: Added B-tree compound indexes on foreign keys to eliminate full table scans and achieve sub-10ms query execution.",
+                "[CACHING]: Implemented Redis cache-aside pattern with TTL invalidation on database write operations."
+            ]
+        },
+        {
+            "tag": "auth_security",
+            "patterns": [
+                "jwt authentication",
+                "oauth2 flow",
+                "password hashing",
+                "session cookies",
+                "rbac authorization"
+            ],
+            "responses": [
+                "[AUTH MODULE]: Enforced bcrypt password hashing and RS256 signed JWT tokens with short-lived access and refresh token rotation.",
+                "[AUTHORIZATION]: Implemented Role-Based Access Control (RBAC) middleware verifying user scopes."
+            ]
+        }
+    ]
+}

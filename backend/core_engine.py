@@ -24,6 +24,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import warnings
+from code_synthesizer import synthesize_solution
 
 warnings.filterwarnings('ignore')
 
@@ -149,6 +150,12 @@ class IntentAgent:
 
         user_clean = clean_text(text)
 
+        # ── 0. Dynamic Code & Algorithm Synthesizer ───────────────────────────
+        dynamic_code = synthesize_solution(self.name, text)
+        if dynamic_code:
+            self._update_memory(text, dynamic_code)
+            return dynamic_code
+
         # ── 1. Exact Substring Match Check ────────────────────────────────────
         for tag, patterns in self.patterns_map.items():
             for pat in patterns:
@@ -157,6 +164,7 @@ class IntentAgent:
                     reply = random.choice(self.responses[tag])
                     self._update_memory(text, reply)
                     return reply
+
 
         # ── 2. Vector Cosine Similarity ───────────────────────────────────────
         try:

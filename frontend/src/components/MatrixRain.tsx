@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-export const MatrixRain: React.FC = () => {
+interface MatrixRainProps {
+  isEnabled?: boolean;
+}
+
+export const MatrixRain: React.FC<MatrixRainProps> = ({ isEnabled = true }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -9,6 +13,11 @@ export const MatrixRain: React.FC = () => {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    if (!isEnabled) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
 
     let animationFrameId: number;
 
@@ -37,7 +46,7 @@ export const MatrixRain: React.FC = () => {
       for (let i = 0; i < drops.length; i++) {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
         
-        // Random bright white/cyan lead drop head, green trail
+        // Random bright white lead drop head, green trail
         if (Math.random() > 0.90) {
           ctx.fillStyle = '#ffffff';
           ctx.shadowColor = '#00ff41';
@@ -66,7 +75,9 @@ export const MatrixRain: React.FC = () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) return null;
 
   return (
     <canvas

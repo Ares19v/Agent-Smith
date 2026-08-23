@@ -1,0 +1,61 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello coder",
+                "hi coder",
+                "coder",
+                "hey coder",
+                "ready to code"
+            ],
+            "responses": [
+                "Coder core active. Ready to write algorithms, debug functions, or review code logic.",
+                "System initialized. Provide your problem statement or code snippet to begin."
+            ]
+        },
+        {
+            "tag": "general_coding",
+            "patterns": [
+                "write a function",
+                "implement algorithm",
+                "data structures",
+                "help me code",
+                "generate code",
+                "how to implement this"
+            ],
+            "responses": [
+                "[CODER]: Breaking problem down into modular helper functions with strict typing and unit test coverage.",
+                "[ALGORITHM]: Implementing clean solution with optimal time complexity O(n) using hash lookups."
+            ]
+        },
+        {
+            "tag": "debug_refactor",
+            "patterns": [
+                "fix my code",
+                "debug this error",
+                "clean up this code",
+                "optimize performance",
+                "reduce complexity",
+                "refactor function"
+            ],
+            "responses": [
+                "[DEBUGGER]: Checking edge cases: null/undefined pointers, unhandled exceptions, and asynchronous race conditions.",
+                "[REFACTOR]: Extracted repetitive logic into reusable pure utilities and simplified branching conditions."
+            ]
+        },
+        {
+            "tag": "code_explanation",
+            "patterns": [
+                "explain how this works",
+                "what does this code do",
+                "walk me through the logic",
+                "code review"
+            ],
+            "responses": [
+                "[CODE REVIEW]: Analyzed control flow. The implementation is cleanly decoupled and follows SOLID design principles.",
+                "[EXPLANATION]: Tracing variable scope and state transitions across the execution stack."
+            ]
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Radio, Terminal, BookOpen, Brain, Server, ShieldAlert, Cpu } from 'lucide-react';
+import { Radio, Code2, Layout, Database, Server, ShieldCheck, Cpu } from 'lucide-react';
 import { Message } from '../types';
 
 interface ChatFeedProps {
@@ -11,45 +11,45 @@ interface ChatFeedProps {
 
 const getSuggestionsForCore = (agent: string) => {
   switch (agent) {
-    case 'Agent Smith':
+    case 'Coder':
       return [
-        { label: 'System status & telemetry', query: 'system status' },
-        { label: 'Explain your purpose', query: 'what is your purpose' },
-        { label: 'Contain matrix anomaly', query: 'contain anomaly' },
-        { label: 'Is victory inevitable?', query: 'the sound of inevitability' },
+        { label: 'Write an algorithm function', query: 'write a function' },
+        { label: 'Fix bugs & syntax errors', query: 'fix my code' },
+        { label: 'Optimize runtime complexity', query: 'optimize performance' },
+        { label: 'Explain code architecture', query: 'explain how this works' },
       ];
-    case 'Trinity':
+    case 'Frontend Dev':
       return [
-        { label: 'Debug code & syntax', query: 'debug this code' },
-        { label: 'Optimize performance', query: 'optimize performance' },
-        { label: 'Run security vulnerability audit', query: 'security audit' },
-        { label: 'Refactor architecture', query: 'refactor this' },
+        { label: 'Build React functional component', query: 'react component' },
+        { label: 'Fix responsive CSS layout', query: 'fix css layout' },
+        { label: 'Manage state with Hooks', query: 'state management' },
+        { label: 'Optimize Vite bundle size', query: 'reduce bundle size' },
       ];
-    case 'Morpheus':
+    case 'Backend Dev':
       return [
-        { label: 'Analyze document context', query: 'analyze document' },
-        { label: 'Summarize key points', query: 'summarize file' },
-        { label: 'What is the Matrix?', query: 'what is the matrix' },
-        { label: 'Cross-reference knowledge', query: 'cross reference data' },
+        { label: 'Create FastAPI REST endpoint', query: 'fastapi router' },
+        { label: 'Optimize SQL database query', query: 'database query' },
+        { label: 'Implement JWT authentication', query: 'jwt authentication' },
+        { label: 'Setup Redis cache layer', query: 'redis caching' },
       ];
-    case 'Oracle':
+    case 'DevOps Engineer':
       return [
-        { label: 'Design microservices architecture', query: 'design microservices' },
-        { label: 'Forecast memory & traffic load', query: 'forecast load' },
-        { label: 'Recommend database patterns', query: 'database architecture' },
-        { label: 'Predict system bottlenecks', query: 'predict trend' },
-      ];
-    case 'Cypher':
-      return [
-        { label: 'Deploy Docker containers', query: 'deploy containers' },
+        { label: 'Write multi-stage Dockerfile', query: 'dockerfile' },
+        { label: 'Configure GitHub Actions CI/CD', query: 'github actions' },
         { label: 'Check server access logs', query: 'check server logs' },
-        { label: 'Emergency cluster rollback', query: 'emergency rollback' },
-        { label: 'Tail live traffic metrics', query: 'view logs' },
+        { label: 'Deploy Kubernetes pods', query: 'kubernetes pod' },
+      ];
+    case 'Security Analyst':
+      return [
+        { label: 'Run security vulnerability audit', query: 'security audit' },
+        { label: 'Prevent SQL injection & XSS', query: 'sql injection' },
+        { label: 'Configure CORS & rate limiting', query: 'cors policy' },
+        { label: 'Check OWASP Top 10 defenses', query: 'owasp top 10' },
       ];
     default:
       return [
+        { label: 'Check core status', query: 'ready' },
         { label: 'Run diagnostics', query: 'diagnostics' },
-        { label: 'Check status', query: 'status' },
         { label: 'Hello core', query: 'hello' },
       ];
   }
@@ -57,11 +57,11 @@ const getSuggestionsForCore = (agent: string) => {
 
 const getCoreIcon = (agent: string) => {
   switch (agent) {
-    case 'Agent Smith': return <ShieldAlert size={14} color="#00ff41" />;
-    case 'Trinity': return <Terminal size={14} color="#00ff41" />;
-    case 'Morpheus': return <BookOpen size={14} color="#00ff41" />;
-    case 'Oracle': return <Brain size={14} color="#00ff41" />;
-    case 'Cypher': return <Server size={14} color="#00ff41" />;
+    case 'Coder': return <Code2 size={14} color="#00ff41" />;
+    case 'Frontend Dev': return <Layout size={14} color="#00ff41" />;
+    case 'Backend Dev': return <Database size={14} color="#00ff41" />;
+    case 'DevOps Engineer': return <Server size={14} color="#00ff41" />;
+    case 'Security Analyst': return <ShieldCheck size={14} color="#00ff41" />;
     default: return <Cpu size={14} color="#00ff41" />;
   }
 };
@@ -90,7 +90,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Radio size={16} color="#00ff41" />
               <span style={{ fontSize: '0.8rem', color: '#00ff41', letterSpacing: '1px' }}>
-                MATRIX CONDUIT // LINKED TO [{currentAgent.toUpperCase()}]
+                DEVELOPER CONDUIT // ACTIVE [{currentAgent.toUpperCase()}]
               </span>
             </div>
             <span style={{ fontSize: '0.75rem', color: '#00aa2a' }}>PORT: 8000</span>
@@ -106,13 +106,13 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
           </div>
 
           <p className="welcome-desc">
-            Direct high-frequency neural terminal linked to <strong>{currentAgent}</strong>.
-            All queries are vectorized through the TF-IDF tensor engine with session memory continuity.
+            Directly connected to <strong>{currentAgent}</strong>. Real-time NLP intent matching,
+            session memory buffers, and RAG document grounding active.
           </p>
 
           <div>
             <div style={{ fontSize: '0.72rem', color: '#00aa2a', marginBottom: '6px', letterSpacing: '1px' }}>
-              // RECOMMENDED INTENT TRIGGERS FOR {currentAgent.toUpperCase()}:
+              // QUICK INTENT PROMPTS FOR {currentAgent.toUpperCase()}:
             </div>
             <div className="prompt-chips-grid">
               {suggestions.map((s, idx) => (
@@ -166,7 +166,7 @@ export const ChatFeed: React.FC<ChatFeedProps> = ({
               [ {currentAgent} ]
             </span>
             <span>&gt;&gt;</span>
-            <span style={{ color: '#39ff14', fontSize: '0.72rem' }}>EVALUATING NEURAL TENSOR...</span>
+            <span style={{ color: '#39ff14', fontSize: '0.72rem' }}>COMPUTING INFERENCE...</span>
           </div>
           <div className="message-bubble">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

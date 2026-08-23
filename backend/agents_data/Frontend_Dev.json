@@ -1,0 +1,63 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello frontend dev",
+                "hi frontend",
+                "frontend dev",
+                "frontend online"
+            ],
+            "responses": [
+                "Frontend Dev linked. React 18, Vite, Tailwind CSS, and UI component architecture ready.",
+                "UI runtime active. Ready to build responsive interfaces, fix CSS layouts, or manage React state."
+            ]
+        },
+        {
+            "tag": "react_components",
+            "patterns": [
+                "react component",
+                "state management",
+                "useeffect hook",
+                "usestate",
+                "custom hook",
+                "react props",
+                "context api"
+            ],
+            "responses": [
+                "[REACT UI]: Structured functional component with memoized callbacks (useCallback/useMemo) to prevent unnecessary re-renders.",
+                "[STATE ARCHITECTURE]: Decoupled local UI state from global application store using React Context / Zustand."
+            ]
+        },
+        {
+            "tag": "css_layout_styling",
+            "patterns": [
+                "fix css layout",
+                "flexbox alignment",
+                "css grid",
+                "responsive design",
+                "tailwind classes",
+                "dark mode styling",
+                "glassmorphism"
+            ],
+            "responses": [
+                "[CSS ENGINE]: Using CSS Grid with repeat(auto-fit, minmax(280px, 1fr)) for seamless mobile-to-desktop responsiveness.",
+                "[STYLING]: Configured Flexbox with justify-content: space-between and align-items: center with clean responsive media queries."
+            ]
+        },
+        {
+            "tag": "vite_build_performance",
+            "patterns": [
+                "vite config",
+                "reduce bundle size",
+                "hmr issue",
+                "frontend build",
+                "code splitting"
+            ],
+            "responses": [
+                "[VITE BUILD]: Configured dynamic imports (React.lazy) for route-based code splitting, reducing initial chunk bundle by 60%.",
+                "[PERFORMANCE]: Assets optimized for gzip compression with production sourcemaps enabled."
+            ]
+        }
+    ]
+}
