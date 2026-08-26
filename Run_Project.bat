@@ -4,14 +4,10 @@ echo ==============================================================
 echo   AGENT SMITH — Local Server
 echo ==============================================================
 
-if not exist venv (
-    echo [ERROR] Virtual environment 'venv' not found. Please run INSTALL.bat first.
-    pause
-    exit /b 1
-)
+:: Virtual environment check bypassed (using system Python if venv absent)
 
 echo [INFO] Activating virtual environment...
-call venv\Scripts\activate.bat
+if exist venv\Scripts\activate.bat call venv\Scripts\activate.bat
 
 echo [INFO] Starting Agent Smith...
 echo [INFO] Press CTRL+C to stop the server.
