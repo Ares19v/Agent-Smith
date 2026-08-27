@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">A production-ready, local-first AI orchestration platform built with FastAPI, React-inspired UI, and scikit-learn.</h4>
+<h4 align="center">A deployment-ready, local-first AI orchestration platform built with FastAPI, React-inspired UI, and scikit-learn.</h4>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python" />
@@ -29,7 +29,7 @@
 
 ## 🎯 Overview
 
-**Agent Smith** is an enterprise-grade, intent-based AI orchestration platform designed to securely run multi-agent systems **100% locally**. It eliminates external API dependencies and cloud subscriptions, guaranteeing complete data privacy. 
+**Agent Smith** is an full-scale, intent-based AI orchestration platform designed to securely run multi-agent systems **100% locally**. It eliminates external API dependencies and cloud subscriptions, guaranteeing complete data privacy. 
 
 Backed by a neural classification engine (TF-IDF Vectorization paired with a multi-layer perceptron neural network), Agent Smith enables users to dynamically deploy, train, and chat with highly specialized agents. The platform features an decoupled microservice architecture (Nginx Frontend + FastAPI Backend), making it highly scalable and ready for production containerized deployment.
 
@@ -41,7 +41,7 @@ Backed by a neural classification engine (TF-IDF Vectorization paired with a mul
 |---|---|
 | 🤖 **Dynamic Agent Orchestration** | Spin up, train, and manage multiple customized AI agents simultaneously via the dashboard. |
 | 🧠 **Neural Intent Engine** | Proprietary local ML pipeline (TF-IDF + MLP) ensures rapid, accurate intent matching with adjustable confidence limits. |
-| 📊 **Microservice Architecture** | Production-ready separation of concerns: Nginx serves the UI and proxies requests to the Python FastAPI backend. |
+| 📊 **Microservice Architecture** | deployment-ready separation of concerns: Nginx serves the UI and proxies requests to the Python FastAPI backend. |
 | 📄 **Document Context Injection** | Real-time RAG (Retrieval-Augmented Generation) supporting PDF, DOCX, and TXT files to ground agent responses. |
 | 🔄 **Hot-Reloading** | Train or delete agents on the fly—zero downtime or server restarts required. |
 | 🛡️ **Enterprise Security** | Enforces path traversal prevention, strict MIME/file-size validation, and safe agent naming regex constraints. |
