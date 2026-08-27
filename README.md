@@ -165,18 +165,6 @@ To enable this:
 
 ---
 
-## 📜 License
+© 2025 Devansh Tyagi (Ares19v). All Rights Reserved.
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
-
----
-
-<p align="center">
-  <b>Built for Performance, Privacy, and Scalability.</b><br>
-  <i>Designed and Engineered by Devansh Tyagi</i>
-</p>
-
----
-<p align="center">
-  Made by Devansh Tyagi @ 2026
-</p>
+Unauthorized copying, modification, distribution, or use of this project or any of its components, in whole or in part, without explicit written permission from the author is strictly prohibited.
