@@ -35,6 +35,16 @@ Backed by a neural classification engine (TF-IDF Vectorization paired with a mul
 
 ---
 
+## 🖥️ Dashboard & Interface Preview
+
+<p align="center">
+  <img src="assets/Agent-Smith_1.png" alt="Agent Smith AI Developer Platform Cockpit" width="100%" style="border-radius: 8px; border: 1px solid #30363d;" />
+  <br>
+  <em>Matrix Developer Cockpit: Active Coder dev core conduit, real-time engine telemetry (4.80 THz / 5 active cores), and quick intent prompt routing.</em>
+</p>
+
+---
+
 ## ✨ Key Features
 
 | Feature | Description |
